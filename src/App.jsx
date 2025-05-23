@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import Nav from "./components/nav/nav";
+import Nav from "./components/nav/Nav";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
