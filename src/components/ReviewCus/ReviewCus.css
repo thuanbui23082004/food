@@ -1,0 +1,190 @@
+.review {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    padding: 40px 0;
+    overflow: hidden;
+    margin-top: 5px;
+
+    hr {
+        background-color: #e3e3e3;
+        height: 1px;
+        width: auto;
+        margin: 20px 0px;
+        border: none;
+    }
+    .title {
+        margin-top: 30px;
+        color: tomato;
+        font-weight: 600;
+        font-size: 30px;
+    }
+    .review-wrapper {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 400px;
+        perspective: 1500px; /* Tăng perspective để hiệu ứng 3D mạnh hơn */
+        transform-style: preserve-3d;
+        .card {
+            position: absolute;
+            width: 350px;
+            height: 400px;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            overflow: hidden;
+            opacity: 0.4;
+            filter: blur(2px);
+            transform-origin: center;
+        }
+        .card.active {
+            opacity: 1;
+            filter: blur(0);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            transform: translateZ(50px) !important;
+        }
+        .card.active:hover {
+            transform: translateZ(70px) scale(1.02) !important;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+        }
+        .card.adjacent {
+            opacity: 0.3;
+            filter: blur(0.5px);
+        }
+
+        .card.distant {
+            opacity: 0.2;
+            filter: blur(4px);
+        }
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            .profile-image-container {
+                position: relative;
+                width: 80px;
+                height: 80px;
+                margin-bottom: 10px;
+                .profile-image {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid white;
+                    position: relative;
+                    z-index: 1;
+                }
+            }
+            .profile-image-container::before {
+                content: "";
+                position: absolute;
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 50px;
+                background-color: #ff0000;
+                border-radius: 0 0 50px 50px;
+                z-index: 0;
+            }
+            .name {
+                margin: 10px 0 5px;
+                font-size: 24px;
+                font-weight: bold;
+                color: #ff0000;
+            }
+
+            .title {
+                margin: 0 0 15px;
+                font-size: 14px;
+                color: #888;
+                letter-spacing: 1px;
+            }
+
+            .review-text {
+                margin-bottom: 20px;
+                color: #666;
+                font-size: 14px;
+                line-height: 1.5;
+                flex-grow: 1;
+            }
+
+            .social-icons {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: auto;
+            }
+
+            .social-icon {
+                color: #ff0000;
+                transition: transform 0.3s ease;
+            }
+
+            .social-icon:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+    .review-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .dot {
+        margin-top: 60px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ccc;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+        background-color: #ff0000;
+    }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-wrapper {
+        height: 380px;
+    }
+
+    .review-card {
+        width: 280px;
+        height: 340px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-wrapper {
+        height: 360px;
+    }
+
+    .review-card {
+        width: 260px;
+        height: 320px;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .review-text {
+        font-size: 13px;
+    }
+}

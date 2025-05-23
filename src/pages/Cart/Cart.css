@@ -1,0 +1,94 @@
+.cart {
+    margin-top: 100px;
+    .card__items--tile {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+        align-items: center;
+        color: grey;
+        font-size: max(1vw, 12px);
+    }
+    .cart__items--item {
+        margin: 10px 0;
+        color: black;
+        img {
+            width: 50px;
+        }
+        .cross {
+            cursor: pointer;
+        }
+    }
+    hr {
+        height: 1px;
+        background-color: #e2e2e2;
+        border: none;
+    }
+    .cart__bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: max(12vw, 20px);
+        margin-top: 80px;
+        .cart__bottom--total {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            div {
+                .cart__total--details {
+                    display: flex;
+                    justify-content: space-between;
+                    color: rgb(104, 104, 104);
+                }
+                hr {
+                    margin: 10px 0px;
+                }
+                button {
+                    border: none;
+                    color: white;
+                    background-color: tomato;
+                    width: max(15vw, 200px);
+                    border-radius: 4px;
+                    padding: 12px 0;
+                    cursor: pointer;
+                    margin-top: 20px;
+                }
+            }
+        }
+        .cart__promocode {
+            flex: 1;
+            .title {
+                color: #555;
+            }
+            .cart__promocode--input {
+                margin-top: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #eaeaea;
+                border-radius: 4px;
+                input {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    padding-left: 15px;
+                }
+                button {
+                    width: max(10vw, 150px);
+                    padding: 12px 5px;
+                    background-color: tomato;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .cart__bottom {
+        flex-direction: column-reverse;
+    }
+    .cart__promocode {
+        justify-content: start;
+    }
+}
